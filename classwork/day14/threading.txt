@@ -1,0 +1,103 @@
+11:30 14-11-2024
+Necessity and explanation of concurrency in programming:
+
+Multi processing - example: while using the calculator the time changes.
+- Invoking the process
+- by using ./  & 
+- Parent id (PPID)
+The background application to run or connect through links 
+The links are threads.
+LWD - light weight process or thread
+
+Necessity and benefits of concurrency:
+1) Resposiveness: concurrency allows app to remains responsive to user action even when performing lon running tasks in the background
+Ex: A web server can handle multiple client requests concurrently without blockig other users. Similary, in graphical applications, concurrency ensures that the user interfaces(UI) remains resposive while processing background tasks.
+
+2) Utilizing multi-core processors: Most modern processors have multiple cores, allowing them to execute multiple instruction at once.
+
+3) Efficient resource utilization: concurrency allows programs to better utilize available system resources by avoiding idle times.
+Ex:  in an I/O bound task like reading from a file or waiting for n/w responses, the cpu canbe freed to perform ohter tasks instead of idling, leading to greater resources efficiency.
+
+4) Scalability: concurrency enables app to scale better, especially in server environment where multiple clients or tasks must be handled simultaneously.
+5) Improvement thourgthout: Overlaps,
+
+11:41 14-11-2024
+
+Concurrency programming:
+
+-- Multithreading : Multiple threads with in a single process are create to perform different parts of  task or handle multiple tasks concurrently.
+*Threads share the same memory space*, which allow for efficient communication but requires careful synchronization to prevent race condition.
+ 
+if it is acting on the same data -- we need to avoid race condition.
+hence the result will be unpredectitable.
+
+-- Multiprocessing: Separate process are created to handle different tasks concurrently.
+*Each process has its own memory space*, which is safer but required inter process communication methods like pipes or share memory for collaboration.
+
+parent child are not eachother
+parent --  acts on add 
+child  -- acts on the subtraction 
+where are sepearted and executed in the one process
+IPC -inter process communication
+
+-- Asynchronous programming: Non-blocking function are used to handle tasks such as I/O operations without blocking the main thread, 
+allowing other operations to procced concurrently.
+This is common in languages like javascript and python.
+Methods to achieve concurrency in C
+
+1. Multithreading using POSIX threads (pthread):
+	Creates and manages threads with in a process. 
+2. Using fork() for multiprocessing: 
+	Creates separate processes with individual memory spaces.
+3. Asynchronous I/O:
+	User non-blocking I/O operations for concurrent processing.
+4. Atomic operations: 
+	Enables simple, threads-safe operation without full mutec overhead
+5. Semaphores: locking process
+	Control accessing to share resources by multiple threads.
+6. Message Queues:
+	 Allows
+
+11:55 14-11-2024
+
+Concurrency Vs Parallelism
+
+-- Concurrency is about dealing with multiple tasks at once or having multiple tasks in progress.
+-- Parallelism is about executing multiple tasks truly 
+
+12:02 14-11-2024
+
+In a multithreads applications:
+-- Each threads has its own stack, registers, and program counter.
+-- Threads with in the same process can easily communicate ans share data since they share the same memory space
+
+Threads are lighter in terms of system resources.
+Traditional view of a process
+Process = process context + code, data, and stack
+
+Process context
+-Program context:
+	-Data registers
+	-condition codes
+	-stack pointer
+	-program counter
+-Kernel context:
+	-VM structure
+	-Descriptor table
+	-brk pointer
+
+Code,data and stack
+-stack
+-stack pointer
+-shared libraries
+-
+Multiple threads:
+
+-Each thread shares the same code, data, and kernel context.
+-Each thread has its own thread id(TID)
+
+Threads vs process
+- Each has its own logical control flow 
+- Each can run concurrently with others
+- Each is context switched
+

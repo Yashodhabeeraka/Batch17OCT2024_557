@@ -1,0 +1,37 @@
+11:31 12-11-2024
+Why we need files?
+
+- Files: 
+A collection of logically related information
+ex: An employee file with employee names, designation, salary etc.
+A product file containing product names, make, batch, price etc.
+A census file containing house no, names of the members, age, sex, employement status, children etc.
+
+types are two: 
+1- Sequential file. All records are arranged in a particular order
+2- Random Access file: Files are accessed at random.
+
+*pointers are necessary
+Special structures are required 
+(FILE)
+File is the stream of the characters
+function are avaliable for character based i/o as well as string based i/o from/to lines.
+In c, there is no concept of a sequential ot an indexed 
+
+FILE ACCESS:
+structure --> type FILE, defined in the header file <stdio.h>
+the only declatation needed for a file pointer is :
+--> FILE *fp
+--> FILE *fpopen(char *name, char *mode);
+First agrs is name and 2nd is the mode of the file that is access to read only file or write only or else read and write the file and last thing is append the file or add the file.
+Once opening the file it returns the address of the particular file.
+--> fp = fopen("file name", "mode");
+
+r-->Open text file for reading.  The stream is positioned at the beginning of the file.
+r+-->Open for reading and writing.  The stream is positioned at the beginning of the file.
+w-->Truncate file to zero length or create text file for writing.  The stream is positioned at the beginning of the file.
+w+-->Open for reading and writing.  The file is created if it does not exist, otherwise it is truncated.  The stream is positioned at the beginning of the file.
+a-->Open for appending (writing at end of file).  The file is created if it does not exist.  The stream is positioned at the end of the file.
+a+-->Open  for reading and appending (writing at end of file).  The file is created if it does not exist.  The initial file position for reading is at the beginning of the file, but output is always appended to the end of the file.
+(man fopen)
+

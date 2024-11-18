@@ -1,0 +1,18 @@
+09:39 12-11-2024
+
+Union items
+{
+	int m;
+	float x;
+	char c;
+};
+
+Only one can access according to the element of a size.
+One at a time.
+we it will be use full: in a struct. example application is freefire game.
+	2000	|	2001	|	2002	|	2003	|
+char c ----->
+int m ------------------>
+float x ---------------------------------------->
+--------------storage of 4 bytes-----------------
+

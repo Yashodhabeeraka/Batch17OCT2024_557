@@ -1,0 +1,4 @@
+10:25 12-11-2024
+enum:
+Is a set of named integer constants that specify all the legal values a variables of that type can have.
+
