@@ -13,44 +13,66 @@ binarySearch(arr, x, l, h)
 	else
 	return binarySearch(arr,x,l,m-1)
 */
+
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+
+#define FAILURE -1
+
+int bSearch_r(int *, int,int,int);
+
+int main(int argc, char *argv[])
 {
-	int arr[]={1,2,3,4,5,6};
-	int n = sizeof(arr) / sizeof(arr[0]);
-    int x = 10;
-    int res = binarySearch(arr, x, 0, n - 1);
-    if (res != -1) 
-	{
-        printf("Element is present at list %d\n", res);
-    } else {
-        printf("Element is not present in list\n");
-    }
-    return 0;
+	int *a=NULL;
+
+	int key;
+	int i,count;
+
+
+	if(argc<3){
+		printf("\nEnter atleast 1 element and 1 key value\n\n");
+		return EXIT_FAILURE;
+	}
+
+	a = (int *)malloc(sizeof(int)*(argc-2));
+	for(i=1,count=0;i<argc-1;i++,count++)
+		a[count] = atoi(argv[i]);
+
+	key = atoi(argv[argc-1]);
+
+	i = bSearch_r(a,0,count,key);
+
+	if(i!=FAILURE)
+		printf("\nKey Found @ %d poisition of the list",i);
+	else
+		printf("\nKey Not Found");
+
+	printf("\n\n");
+	return 0;
 }
 
-int binarySearch(int arr[], int x, int low, int high)
+int bSearch_r(int *arr, int low, int high, int key)
 {
+	int mid = (low+high)/2;
+
+
 	if (low>high)
+		return FAILURE;
+
+	if(key == arr[mid])
 	{
-		return False;
+			return mid;
+	}
+	else if(key > arr[mid])
+	{
+			//rigth side of the list
+			low = mid + 1;
+			bSearch_r(arr,low,high,key);
 	}
 	else
 	{
-		int mid = (low+high)/2;
-	}
-	if (x=arr[mid])
-	{
-		return mid;
-	}
-	else if (x>arr[mid])
-	{
-		return binarySearch(arr, x, mid+1, high);
-	}
-	else
-	{
-		return binarySearch(arr, x, low, mid-1);
+			//left side of the list
+			high = mid - 1;
+			bSearch_r(arr,low,high,key);
 	}
 }
-
-

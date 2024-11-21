@@ -101,3 +101,10 @@ Threads vs process
 - Each can run concurrently with others
 - Each is context switched
 
+How threads and process are different
+- threads share all code and data execpt local stacks usually
+	- processes typically do not
+- threads are somewhat less expensive than processes
+	- process control creating and reaping twic as exp as thread control
+	- linux numbers: - 20k cycle to create and reap a process - 10k cycles or less to create and reap a thread.
+

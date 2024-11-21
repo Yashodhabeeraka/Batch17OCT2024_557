@@ -1,80 +1,83 @@
-/* 
-FILE ==> DS
+/*
+
+FILE => DS 
 fd => file pointer to FILE DS
-mode: r,w,a,r+,w+,a+
 
-fclose(fd)=> close the opened file
+fopen("NameofFIle","Mode") => opening a file
+Mode=> r,w,a,r+,w+,a+
 
-read and write operation => fprintf,fscanf ==> Formated writing and reading resp.
+fclose(fd) => close the opened file
 
-fputs, fgets ==> unfomatted i/o operation
+read/write
 
-fwrite/fread ==>reading or writing binary objects.
+fprintf,fscanf => formated writing and reading resp.
+
+
+fputs,fgets => unformated i/o operation
+
+fwrite/fread => reading/writing binary objects
+
+
 
 */
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
 
 int main()
 {
 	FILE *fd=NULL;
-	char Ch='b';
-	char name[]="Yashodha";
-	char rname[100];
-	
+	char ch='a';
+	char Name[] = "Bhimashankar";
+	char rName[100];
 	int i;
+	
+	fd = fopen("Test2.txt","r");
 
-	fd = fopen("Test1.txt","r");
-
-	//fd = fopen("Test2.txt","w");
-	
-	//fd = fopen("Test1.txt","r"); // opening the existing file
-	
-	//fd = fopen("Test2.txt","r");//opening the not existing file
-	
-	//fd = fopen("Test1.txt","a");// append
-	
-	//fd = fopen("Test1.txt","r"); // opening the existing file
 	if(fd == NULL)
 	{
 		perror("fopen: ");
 		printf("\n%p\n\n",fd);
 		exit(1);
 	}
-	printf("\nOpened the file successfully %p \n\n", fd);
+	printf("\nOpened the file successfully %p\n\n",fd);
 /*
-	while((Ch=fgetc(fd))!=EOF)
-	{
-		putchar(Ch);
-	}
-*/
-/*
-	while((Ch=fgetc(stdin)))
+	while((ch=fgetc(fd))!=EOF)
 	{
 		putchar(ch);
 	}
+
 */
-/*
-	fputc(Ch,fd);
-	fputc(Ch,fd);
-	fputc(Ch,fd);
-	fputc(Ch,fd);
-	fputc(Ch,fd);
-*/
-/*
-	for(i=0;i<strlen(name);i++)
-		fputc(name[i],fd)
-*/
+	
+	/*
+	fputc(ch,fd);
+	fputc(ch,fd);
+	fputc(ch,fd);
+	fputc(ch,fd);
+	fputc(ch,fd);
+	*/
+
+	/*for(i=0;i<strlen(Name);i++)
+		fputc(Name[i],fd);
+	*/
 	i=0;
-	while((Ch=fgetc(fd))!=EOF)
+	while((ch=fgetc(fd))!=EOF)
 	{
-		rname[i]=Ch;
+		rName[i] = ch;
 		i++;
 	}
-	rname[i]='\0';
-	printf("\nrname=%s\n",rname);
+	rName[i] = '\0';
+
+	printf("\nrName = %s\n",rName);
+
 	printf("\n\n");
+
+
+
 	fclose(fd);
 	return 0;
 }

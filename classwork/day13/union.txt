@@ -15,4 +15,79 @@ char c ----->
 int m ------------------>
 float x ---------------------------------------->
 --------------storage of 4 bytes-----------------
+10:25 12-11-2024
+
+11:31 12-11-2024
+Why we need files?
+
+- Files: 
+A collection of logically related information
+ex: An employee file with employee names, designation, salary etc.
+A product file containing product names, make, batch, price etc.
+A census file containing house no, names of the members, age, sex, employement status, children etc.
+
+types are two: 1- Sequential file. All records are arranged in a particular order
+2- Random Access file: Files are accessed at random.
+
+
+       r      Open text file for reading.  The stream is positioned at the beginning of the file.
+
+       r+     Open for reading and writing.  The stream is positioned at the beginning of the file.
+
+       w      Truncate file to zero length or create text file for writing.  The stream is positioned at the beginning of the file.
+
+       w+     Open for reading and writing.  The file is created if it does not exist, otherwise it is truncated.  The stream is positioned at the beginning of the file.
+
+       a      Open for appending (writing at end of file).  The file is created if it does not exist.  The stream is positioned at the end of the file.
+
+       a+     Open  for reading and appending (writing at end of file).  The file is created if it does not exist.  The initial file position for reading is at the beginning of the file, but output is always appended to the end of the file.
+
+
+Assignment 
+
+Read the containts from the data base from the records from the employees
+
+101|Amit kumar1|M|8888|100001
+102|Amit kumar2|M|8888|100002
+103|Amit kumar3|M|8888|100003
+104|Amit kumar4|M|8888|100004
+105|Amit kumar5|M|8888|100005
+106|Amit kumar6|M|8888|100006
+
+read the content in the file store in the structure and print
+
+------------------------------------------------------------------------------------------------------------------------
+
+Note: Allocating the memory based on the no.of records  -- linked list.
+how to know no.of lines before allocating
+
+------------------------------------------------------------------------------------------------------------------------
+
+CC = gcc
+
+cflags=-g -c
+oflags=-o
+iflags=-I
+OBJ=./obj
+SRC=./src
+INC=./inc
+BIN=./bin
+ 
+$(BIN)/app: $(OBJ)/main.o $(OBJ)/emp.o
+	$(CC) $(oflags)$(BIN)/app $(OBJ)/main.o $(OBJ)/emp.o
+
+$(OBJ)/main.o: $(SRC)/main.c
+	$(CC) $(cflags) $(iflags) $(oflags) $(OBJ)/ $(SRC)/main.c
+
+$(OBJ)/emp.o: $(SRC)/main.c
+	$(CC) $(cflags) $(iflags) $(oflags) $(OBJ)/ $(SRC)/emp.c
+
+clean:
+	@echo "Cleaning in Progress"
+	rm -rf $(OBJ)/*
+	rm -rf $(BIN)/*
+	rm -rf ./a.out
+	@echo "Cleaning Done!"
+
+------------------------------------------------------------------------------------------------------------------
 

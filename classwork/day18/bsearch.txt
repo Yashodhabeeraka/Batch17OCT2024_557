@@ -1,0 +1,58 @@
+09:27 21-11-2024
+
+Circular queue and pirority queue
+
+Searching Algorithm
+- in a linear -> time consuming 
+adv: it can be implemented for any unwanted items
+
+-Interval search: 
+--> list should be sorted data structure
+
+for example: binary Search
+
+linear search:
+algorithm:
+linearSearch(array, key)
+	for each item in the array
+		if (array == x)
+		return;
+Binary Search:
+--> finding an element postion in a sorted array
+--> in two ways -Iterative method
+		 -Recursive method
+
+in recursice method follows the divide and conquer approach
+
+
+do until the pointer low and high meet each  other
+
+mid =(low+high)/2
+if (x==arr[mid])
+return mid
+elif(x>arr[mid]) // x is on the right side
+low= mid+1
+else // x is on the left side
+high =mid-1
+
+binarySearch(arr, x, l, h)
+	if l>h
+	 return false
+	else
+	m=(l+h)/2
+	if x == arr[m]
+	return m
+	else if x>arr[m]
+	return binarySearch(arr,x,m+1,h)
+	else 
+	return binarySearch(arr,x,l,m-1)
+
+
+
+
+
+
+
+
+
+

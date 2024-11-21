@@ -48,13 +48,13 @@ int binarySearch(int arr[], int key)
 		else if (key > arr[mid])
 		{
 			//Right Side of the List
-			printf("\n Right side of the list");
+			//printf("\n Right side of the list");
 			low =mid+1;
 		}
 		else
 		{
 			//Left Side of the List
-			printf("\n Left side of the list");
+			//printf("\n Left side of the list");
 			high=mid-1;
 		}
 	}

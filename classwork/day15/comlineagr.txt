@@ -43,4 +43,82 @@ int main (int argc, char *argv[])
  argv[4] = 4
  argv[5] = 5
  argv[6] = 6
+write a program to read contains from file & store them in the emp record 
+using command line arg to supply to database.
 
+--- ./bin/app ./data/db.dat
+
+- inc - we need to create header file
+
+/* Header file and macros */
+
+#ifndef EMPLOYEE_H
+#define EMPLOYEE_H
+
+//header files
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//Macros
+
+#define MAX 20
+#define BUFF 1024
+
+#endif
+
+/*
+Function and structure decleration
+*/
+
+#ifndef EMP_H
+#define EMP_H
+
+typedef struct Employee
+{
+        int id;
+        int phno;
+        int sal;
+        char Name[MAX];
+        char g;
+}EMP;
+
+int getEmp(EMP *, char []);
+int displayEmp(EMP *);
+
+#endif
+
+
+/* Display Employee details */
+#include
+
+int getEmp(EMP *e, char line[])
+{
+        char *token = NULL;
+    token=strtok(line,",");
+    if(token!=NULL)
+    {
+                e->id=atoi(token);
+        token=strtok(NULL,",");
+        strcpy(e->Name,token);
+        token=strtok(NULL,",");
+        e->g=*token;
+        token=strtok(NULL,",");
+        e->phno=atoi(token);
+        token=strtok(NULL,",");
+        e->sal=atoi(token);
+        }
+}
+
+int displayEmp(EMP *e)
+{
+        printf("\nEmployee Details are: \n");
+        printf("\nID: %d", e->id);
+        printf("\nName: %s",e->name);
+        printf("\nGender: %c",e->Gender);
+        printf("\nPhNo: %d",e->phno);
+        printf("\nSalary: %d",e->sal);
+
+        return 0;
+}
