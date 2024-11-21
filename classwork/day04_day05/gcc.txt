@@ -1,0 +1,14 @@
+25 October 2024
+
+GCC: 
+	• GNU project c and c++ compiler
+	• When you invoke GCC, it normally does preprocessing, compilation, assembly and linking
+	• If we use -g the size of the application increase.
+	• -> GCC commands (learn- -c,-s,-e,-g,-pg,-warn,-Idir,-ldir,-Dmacro,-foption,….)
+	• -ansi: to meet standards
+	• -std-mentions which standard or version I'll be using.
+	• -I : to include a particular directory(third party files)
+	• -c : compiles, -E : preprocessed state
+	• Gcc -Wall -c main.c - to compile
+	• Gcc -S main.c-to get assembler code
+	• Gcc --- save-temps : to get intermediatory files

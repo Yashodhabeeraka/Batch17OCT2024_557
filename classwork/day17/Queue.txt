@@ -1,0 +1,32 @@
+11:44 19-11-2024
+
+Queue Operations:
+
+in stack (top==max) stack is full
+(top == bottom) stack is empty
+
+example: pipe (in flow of water in one direction)
+<--__________-->
+o/p__________i/p
+
+top --> called as rare. and the rare is the initial position.
+
+1. condition --> front == rare --> empty queue. 
+
+--> the rare is increasing or growing up to the max
+
+if (rare == max) the queue is full for the insert operation.
+
+2. condition --> front == max -->  
+
+if (front == max) the queue is empty 
+
+when front reaches max or when front reaches rare we need to reset the front and rare.
+how to reset means that front and rare should be zero.
+
+12:00 19-11-2024
+ 
+--> the pop operation not in the push because the pop operation is known as delete operation.
+
+--> Here in queue  push is called as Enqueue and pop is called Dequeue.
+

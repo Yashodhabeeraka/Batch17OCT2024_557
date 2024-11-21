@@ -1,0 +1,23 @@
+09:46 19-11-2024
+
+Stacks 
+Last In First Out
+top
+ |
+|3|--> limit
+|2|
+|1|
+ |
+bottom
+
+the stack will grow from bottom to top.
+
+bottom == top (means container is empty)
+top = limit (means container is full)
+
+size/limit/max --> fixed
+insert an element or push the element
+insert operation --> stack or container full or not
+delect or remove /pop 
+-->stack or container is empty we cann't delete.
+ 

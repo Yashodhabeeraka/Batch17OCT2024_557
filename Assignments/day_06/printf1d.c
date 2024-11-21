@@ -1,3 +1,7 @@
+/*
+1d. Add code to display the size of each data type mentioned in Q1a and sizeof the variables of each datatype (You may refer sample code in data_type_size.c )
+*/
+
 #include <stdio.h>
 #include <ctype.h> 
 int main() 
@@ -20,7 +24,8 @@ void readdisplay2()
     printf("Enter a character, an integer, a string, a short integer, and a float: ");
     scanf(" %c %d %79s %hd %f", &charType, &intType, charArray, &shortType, &floatType);
 
-    for (int i = 0; charArray[i] != '\0'; i++) {
+    for (int i = 0; charArray[i] != '\0'; i++) 
+	{
         charArray[i] = toupper(charArray[i]);
     }
 

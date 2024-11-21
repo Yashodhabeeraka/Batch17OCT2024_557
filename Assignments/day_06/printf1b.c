@@ -1,6 +1,14 @@
+/* 
+1b. Create a copy of readdisplay() as function readdisplay2() 
+with changes below
+--> Instead of reading 1 data at a time, 
+read all inputs using a single scanf().
+Test readdisplay2() by changing the read order. Do you observe any issue?
+*/
+
 #include <stdio.h>
-int main() {
-    
+int main() 
+{    
 	printf("Test Data 1:\n");
     readdisplay2();
     printf("\nTest Data 2:\n");
@@ -8,7 +16,8 @@ int main() {
     return 0;
 }
 
-void readdisplay2() {
+void readdisplay2() 
+{
     char charType;
     int intType;
     char charArray[80];
