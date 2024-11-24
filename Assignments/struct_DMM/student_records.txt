@@ -1,0 +1,4 @@
+user1 90
+user21 100
+userABC 56
+userX 40
