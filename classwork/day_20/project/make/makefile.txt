@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -pedantic -std=c11
+LDFLAGS =
+
+SRC = src/main.c src/defect.c
+OBJ = $(SRC:.c=.o)
+BIN = bin/program
+
+all: $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+clean:
+	rm -f $(OBJ) $(BIN)
+
+valgrind: $(BIN)
+	valgrind --leak-check=full --log-file=bin/valgrind_output.txt ./$(BIN) D1:New A1:New D10:Fixed D4:Closed D5:Open D1:Fixed D10:Verified
+
