@@ -1,0 +1,80 @@
+11:59 27-11-2024
+
+System Programming
+
+systemlibraries - 
+
+kernel mode: cpu operates in the privileged mode. unrestricted access to hardware resources.
+it can execute all instructions and access protected areas of memory.
+the os kernel runs in the mode the manage system level 
+operations like memory management, process scheduling and device control.
+
+user mode:  cpu operates in restricted mode where applications are limited to accessing
+specific memeory areas and cannot directly interact with hardware.
+if application need hardware acces, it must request the kernel via system calls.
+
+-Examples: 
+In C, a program running in user mode cannot directly modify hardware setting.
+if it needs to read a file, invokes system calls.  
+ex: read() and write() instead of directly manipulating the disk.
+
+read() and write() -- lower level 
+fread() and fwrite() -- higher level 
+
+Why system call are necessary:
+Def: System call acts a s interfaces between user programs and the os.
+they enable user mode app to request kernel services like file handling,
+process managemet and network communication.
+
+needs of system call:
+-  Direct hw access by user programs can lead system instability.
+- The kernek ensures, abstraction, and efficient, resource sharing
+- System calls simplify interaction by abstraction in hardware operation
+
+ex: function in C: open() , write(), read() are wrappers for the system calls
+int fd = open("file.txt", O_RDONLY);
+
+
+-- System call execution types:
+- System call execution  Process
+A user mode progra, issues a system call -- read()
+The prog switches from user mode to kernel mode (via an interrupt or trap instruction)
+The kernel process the request and performes
+
+Process control
+-Creation
+-Termination
+-Management of process
+ex: fork(), exec(), exit()
+
+File management
+-Operation like reading, writing, and closing files
+ex: open(), write(), close()
+
+Device management
+-Interacting with hardware device
+ex: ioctl(), read()
+
+Information Maintenance:
+-Accessing system information
+ex: getpid(), gettimeofday()
+
+Communication
+-Managing inter process communication
+ex: pipe(), socket()
+
+Command to view system calls - strace
+purpose:
+strace is a debugging tool in linux used to trace system calls made by a program.
+It show all interaction between the program and the os kernel.
+
+usage:  strace ./yourprogram
+
+example:
+execve("./quick.c", ["./quick.c"], 0x7ffd5c942d10 /* 22 vars */) = -1 EACCES (Permission denied)
+fstat(2, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 5), ...}) = 0
+write(2, "strace: exec: Permission denied\n", 32strace: exec: Permission denied
+) = 32
+getpid()                                = 1024
+exit_group(1)                           = ?
++++ exited with 1 +++
