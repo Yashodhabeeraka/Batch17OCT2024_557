@@ -78,3 +78,60 @@ write(2, "strace: exec: Permission denied\n", 32strace: exec: Permission denied
 getpid()                                = 1024
 exit_group(1)                           = ?
 +++ exited with 1 +++
+
+
+14:27 27-11-2024
+
+Process Basis
+- Process control basis (PCB)
+PCB is a data structure maitained by the os to store all information about a specific process.
+it acts as a repository for a process attributes and is essential for process management.
+
+- Control of PCB:
+process ID ----------- A unique identifier for the process
+process state --------- the current state process
+process counter --------- the address of the next instruction to execute
+register -------- value of cpu register for the process
+memory management information
+accounting information
+I/O information
+scheduling information
+
+Roles:
+PCB is critical for the context switching process, as it saves and restores the state of a process
+
+
+process is a program in execution it is the basis unit of execution in an operating system
+
+A process has a life cycle and resources like memory, cpu time
+
+Parent process -- that created the current process
+Priority -- Determines process scheduling
+Execution context -- Includes the program counter, CPU registers, etc
+Resource Usage -- Tracks CPU and memory consumption
+
+
+Process states :
+A process can exits in several states during its life cycle:
+
+New -- process is being created
+Ready -- process is ready to executed but is waiting for cpu time
+Running -- process is currently being executed by the cpu
+Waiting -- process is waiting for an event ( I/O completion)
+Terminated -- process has finished execution
+
+
+Scheduling:
+
+Scheduling determines which process gets the cpu and for how long. it is managed bu the scheduler in the os.
+
+Type of Scheduling:
+1. Long term scheduling - decides which processes are admitted to the ready queue.
+2. Short term scheduling - select which process to execute next
+3. Medium term scheduling - Temp removes or swaps out processes to optimize resources use.
+
+Steps in context switching:
+
+Save current process state
+Update process state
+
