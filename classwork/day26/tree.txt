@@ -1,0 +1,112 @@
+09:20 03-12-2024
+
+- multi server chat application
+- how to bulid a server. 
+- parent is server and child is also a server 
+
+fd sets (file descriptor) 
+
+
+10:16 03-12-2024
+
+Trees: 
+
+binary tree: Binary treeis a rooted tree in which no vertex has more than two children.
+struct binaryNode;
+{
+	object 		element;	//the data in the node
+	binaryNode	*left;		//left child
+	binaryNode 	*right;	//rigth child
+};
+
+node(13)
+degree of a node
+leaf(terminal) - no child
+nonterminal
+parent
+childern
+sibling
+degree of a tree(3)
+Ancestor
+level of a node
+
+full binary tree
+
+what is perfect binary tree? 
+the leaves should be same level
+if all its internal node are same level or with out generating another child
+
+Complete binary tree?
+which every level except possibly the last is completely filled and all nodes are as far left as possible.
+- having more node at the left side.
+-it seems to mean a balanced tree.
+
+Note:
+--  All perfect binary trees are complete binary trees, but reverse is not true.
+--  It is complete binary tree, but not a perfect binary tree.
+
+Balance binary tree:
+
+A(3,2)--B(2,2),C(0,1)
+it is a balance binary tree as for all nodes, difference of left and right subtree height is not more than one
+C(0,2)
+Node C violates the property of balanced binary tree
+
+who to calculate the height of the binary tree?
+(2^(n-1))
+
+Programs:
+write a c program to insert nodes in a binary tree 
+- inorder, preorder, post order traversals
+
+write a c program to insert nodes in a binary search tree
+
+write a c program to find the level of a tree
+
+write a c program to find the max/min elements of a tree
+
+15:25 03-12-2024
+
+Depth first traversals:
+-preorder traversal 	- vertex,left,right sub tree
+-inorder traversal 	- left, vertex,right subtree
+-postorder traversal 	- left, vertex, right 
+
+
+15:44 03-12-2024 
+
+if we give elements : 5,10,3,4,8,1,2,13
+the first element of the given element is always the root the tree. so, 5 is the root of the tree
+right of 5 is the node 10 -- that means the 5 is the root of the tree then next element of the root compares and moves to left or right.
+5 less 3 then it inserts in to left
+
+if 3 becomes root, the next element 4 will check with 3 and 3 is less 4 then it moves to left.
+
+5,10,3,4,8,1,2,13
+
+			  5	
+		3			10
+	1		4	8		13
+		2
+
+- inorder (LNR) left node right:  1,2,3,4, 5, 8,10,13.
+we have to apply LNR to the each node.
+
+- preorder (NLR) Node left right: 5,3,1,2,4,10,8,13.
+we have to see the node and we print the node first then move to the left sub tree and printing the left side of the sub trees and comes to the right side of the subtree. and moves back the root checks the right side of the subtree and again the same checks the left side of the subtree and come backs to rightside
+
+-postorder (LRN) Left right node: 2,1,4,3,8,13,10,5.
+here we have check the left side of the node, after printing the left side of subtree, it checks the rigth side of the subtree after printing all the subtrees after that node.
+
+to find the level of a tree is use "Postorder tree".
+
+
+17:34 03-12-2024
+Delete a node in BST
+
+To delete a node there are 3 possibilities :
+- delete a leaf node
+- delete a node with 1 child(either left or right)
+- delete a node with 2 child(i.e., root node)
+
+
